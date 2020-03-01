@@ -43,7 +43,12 @@ depositButton.addEventListener('click',function (){
 const addWithdraw = document.getElementById("addWithdraw");
 addWithdraw.addEventListener('click',function () {
     const withdrawNumber = getInputNumber("withdrawAmount");
-    
+    updateSpanText("currentWithdraw", withdrawNumber );
+    updateSpanText("currentBalance", -1* withdrawNumber );
+
+    document.getElementById("withdrawAmount").value= "";
+
+
 })
 
 //shortcut of Input text
@@ -58,11 +63,11 @@ function getInputNumber(id) {
 
 
 //shortcut of innerText
-function updateSpanText(id,depositNumber) {
+function updateSpanText(id,addedNumber) {
      
     const current = document.getElementById(id).innerText;
     const currentNumber = parseFloat(current);
-    const total = depositNumber + currentNumber;
+    const total = addedNumber + currentNumber;
     document.getElementById(id).innerText= total;
 
     
